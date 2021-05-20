@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+<h1>Bienvenue dans notre site web</h1>
+
+<div class="row">
+    {%for article in articles %}
+        <div class="card col-md-4" style="width: 18rem;">
+            <p class = "date">Lancé le {{article.createdAt | date("d/m/Y") }}</p>
+             <img class="card-img-top" src="{{ article.image}}" alt="{{article.title}}">
+             <div class="card-body">
+                 <h5 class="card-title">{{article.title}}</h5>
+                 <a href="#" class="btn btn-primary">En savoir plus</a>
+             </div>
+        </div>
+
+    {% endfor %}
+    
+</div>
+
+{% endblock %}
